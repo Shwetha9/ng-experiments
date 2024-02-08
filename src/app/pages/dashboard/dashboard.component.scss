@@ -1,0 +1,7 @@
+@use '../../../assets/scss/functions/px-to-rem.scss' as *;
+
+.app-dashboard {
+  h3 {
+    margin-top: px-to-rem(40);
+  }
+}
