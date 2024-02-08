@@ -16,8 +16,8 @@
           <input type="password" formControlName="password" required />
         </div>
         <!-- Error Message -->
-        <div *ngIf="loginFailed" class="error">Invalid username or password.</div>
-        <button type="submit">Login</button>
+        <div *ngIf="loginFailed" class="app-login-error">Invalid username or password.</div>
+        <button type="submit" class="btn-primary">Login</button>
       </form>
     </div>
   </div>

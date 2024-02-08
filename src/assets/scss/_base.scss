@@ -7,12 +7,6 @@ html {
   margin: 0;
 }
 
-.container {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 12px;
-}
-
 p,
 span,
 strong,
@@ -43,7 +37,15 @@ del,
 sub,
 sup,
 ul,
-li {
+li,
+button {
   margin: 0;
   line-height: 1.5;
+  font-family: 'Open Sans', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }

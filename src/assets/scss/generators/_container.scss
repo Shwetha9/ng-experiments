@@ -1,0 +1,23 @@
+@use '../variables/breakpoints' as bp;
+@use '../functions/px-to-rem.scss' as *;
+
+// Assuming you have a base .container class defined somewhere
+.container {
+  width: 100%; // Default width, adjust as needed
+  width: px-to-rem(320); // Initial max-width, adjust based on your design requirements
+}
+
+// Generate media queries for breakpoints
+@each $breakpoint, $value in bp.$bp-map {
+  $size: map-get($value, min-width);
+
+  @media (min-width: #{$size}) {
+    .container {
+      width: $size; // Apply the max-width from the breakpoint
+      padding-right: px-to-rem(12);
+      padding-left: px-to-rem(12);
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
