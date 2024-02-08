@@ -1,0 +1,7 @@
+@use '../functions/px-to-rem.scss' as *;
+
+$font-size-xs: px-to-rem(12);
+$font-size-std: px-to-rem(16);
+$font-size-md: px-to-rem(32);
+$font-size-lg: px-to-rem(64);
+$font-size-xl: px-to-rem(128);

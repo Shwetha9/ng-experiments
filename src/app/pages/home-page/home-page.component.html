@@ -1,4 +1,24 @@
-<section>
-  <h1>Home page</h1>
-  <a [routerLink]="['/list']"> Go to list page </a>
+<section class="app-login">
+  <div class="app-login-inner">
+    <header class="app-login-welcome">
+      <h1>Welcome to CX Dashboard</h1>
+      <p class="app-login-intro">Login to view your dashboard, track your customer's engagement and schedule your messages</p>
+    </header>
+
+    <div class="app-login-form">
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="app-login-username">
+          <label for="username">Username:</label>
+          <input type="text" formControlName="username" required />
+        </div>
+        <div class="app-login-password">
+          <label for="password">Password:</label>
+          <input type="password" formControlName="password" required />
+        </div>
+        <!-- Error Message -->
+        <div *ngIf="loginFailed" class="error">Invalid username or password.</div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
 </section>

@@ -1,0 +1,58 @@
+@use '../../../assets/scss/variables/spacings' as *;
+@use '../../../assets/scss/variables/colors' as *;
+@use '../../../assets/scss/generators/media-queries' as *;
+
+.app-login {
+  &-welcome,
+  &-form {
+    padding: $spacing-md;
+  }
+
+  &-welcome {
+    background-color: $color-primary;
+    h1 {
+      color: $color-secondary;
+    }
+    p {
+      color: $color-light;
+      max-width: 65%;
+    }
+  }
+
+  &-username,
+  &-password {
+    margin-bottom: 20px;
+  }
+}
+
+@include breakpoint('medium') {
+  .app-login {
+    height: 100dvh;
+    &-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    &-welcome,
+    &-form {
+      width: 100%;
+      height: 100%;
+      padding: $spacing-xl;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &-welcome {
+      background-color: $color-primary;
+      h1 {
+        color: $color-secondary;
+      }
+      p {
+        color: $color-light;
+        max-width: 65%;
+      }
+    }
+  }
+}
