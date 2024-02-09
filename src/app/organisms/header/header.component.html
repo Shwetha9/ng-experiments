@@ -1,0 +1,15 @@
+<section class="app-header">
+  <div class="app-header-admin">
+    <div class="app-header-admin-avatar">
+      <img src="https://i.pravatar.cc/150?img=53" />
+    </div>
+    <span class="app-header-admin-greeting">{{ userMessage }}</span>
+  </div>
+  <nav class="app-header-nav">
+    <ul class="app-header-nav-inner">
+      <li *ngFor="let link of navData" class="app-header-item list-style-none">
+        <a [routerLink]="[link.route]" class="app-header-link">{{ link.name }} </a>
+      </li>
+    </ul>
+  </nav>
+</section>

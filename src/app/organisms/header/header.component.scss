@@ -1,0 +1,70 @@
+@use '../../../assets/scss/variables/colors' as *;
+@use '../../../assets/scss/functions/px-to-rem.scss' as *;
+@use '../../../assets/scss/generators/media-queries' as *;
+
+.app-header {
+  width: 100%;
+  background-color: $color-primary;
+  &-link {
+    padding: px-to-rem(30);
+    display: inline-block;
+    text-transform: capitalize;
+    color: $color-secondary;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+
+    &:hover {
+      cursor: pointer;
+      border-bottom-color: $color-secondary;
+      transition: border-color 0.3s ease-in;
+    }
+    &:visited {
+      color: darken($color-secondary, 15%);
+    }
+  }
+  &-admin {
+    padding: px-to-rem(30);
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: center;
+    &-avatar {
+      width: px-to-rem(65);
+      height: px-to-rem(65);
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+    &-greeting {
+      display: inline-block;
+      margin-left: px-to-rem(30);
+      color: $color-light;
+    }
+  }
+  &-nav-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &-item {
+    flex: 0 1 50%;
+  }
+}
+
+@include breakpoint('medium') {
+  .app-header {
+    display: flex;
+    justify-content: flex-start;
+    &-admin {
+      flex: 1;
+      padding: 0 px-to-rem(30);
+    }
+    &-item {
+      flex: auto;
+    }
+  }
+}
