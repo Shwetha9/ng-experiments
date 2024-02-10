@@ -9,5 +9,9 @@ import { HeaderNav } from 'src/app/models/header-nav';
 export class HeaderComponent implements OnInit {
   @Input() navData: HeaderNav[] = [];
   @Input() userMessage = '';
+  menuActive = false;
+  toggleMenu() {
+    this.menuActive = !this.menuActive;
+  }
   ngOnInit(): void {}
 }

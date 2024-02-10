@@ -2,11 +2,24 @@
 @use '../../../assets/scss/functions/px-to-rem.scss' as *;
 @use '../../../assets/scss/generators/media-queries' as *;
 
+// Shared inheritence abstracted
+%mobile-icons-styling {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
 .app-header {
   width: 100%;
   background-color: $color-primary;
+  position: relative;
+
   &-link {
-    padding: px-to-rem(30);
+    padding: px-to-rem(15);
     display: inline-block;
     text-transform: capitalize;
     color: $color-secondary;
@@ -22,10 +35,54 @@
       color: darken($color-secondary, 15%);
     }
   }
-  &-admin {
-    padding: px-to-rem(30);
-    display: flex;
 
+  &--mobile-open {
+    @extend %mobile-icons-styling;
+    z-index: 101;
+    color: $color-light;
+    span {
+      font-size: 30px;
+    }
+    &:focus {
+      outline: none;
+    }
+
+    &.hide-hamburger {
+      display: none;
+    }
+  }
+
+  &--mobile-close {
+    @extend %mobile-icons-styling;
+    span {
+      z-index: 102;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    transition: right 0.3s ease;
+    span {
+      z-index: -1;
+    }
+
+    &.nav-active {
+      right: 0; // Slide in when active
+    }
+  }
+
+  &-admin {
+    padding: px-to-rem(10);
+    display: flex;
     justify-content: flex-start;
     align-items: center;
     &-avatar {
@@ -45,26 +102,43 @@
       color: $color-light;
     }
   }
-  &-nav-inner {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  &-item {
-    flex: 0 1 50%;
-  }
 }
 
 @include breakpoint('medium') {
   .app-header {
     display: flex;
     justify-content: flex-start;
+
+    &--mobile-open {
+      display: none;
+    }
+
+    &--mobile-close {
+      display: none;
+    }
+
     &-admin {
       flex: 1;
       padding: 0 px-to-rem(30);
     }
-    &-item {
-      flex: auto;
+
+    &-nav {
+      position: unset;
+      background-color: transparent;
+      flex: 3;
+
+      &.nav-active {
+        right: unset; // Slide in when active
+      }
+
+      &-inner {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+
+    &-link {
+      padding: px-to-rem(30);
     }
   }
 }
