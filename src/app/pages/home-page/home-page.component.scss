@@ -23,6 +23,10 @@
   &-password {
     margin-bottom: 20px;
   }
+  &-error {
+    margin-bottom: $spacing-md;
+    color: $color-danger;
+  }
 }
 
 @include breakpoint('medium') {
@@ -53,10 +57,6 @@
         color: $color-light;
         max-width: 65%;
       }
-    }
-    &-error {
-      margin-bottom: $spacing-md;
-      color: $color-danger;
     }
   }
 }
