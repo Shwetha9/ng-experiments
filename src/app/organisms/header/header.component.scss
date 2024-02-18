@@ -1,12 +1,11 @@
 @use '../../../assets/scss/variables/colors' as *;
 @use '../../../assets/scss/functions/px-to-rem.scss' as *;
 @use '../../../assets/scss/generators/media-queries' as *;
+@use '../../../assets/scss/variables/spacings' as *;
 
 // Shared inheritence abstracted
 %mobile-icons-styling {
   position: absolute;
-  top: 20px;
-  right: 20px;
   background: none;
   border: none;
   font-size: 30px;
@@ -21,6 +20,7 @@
   &-link {
     padding: px-to-rem(15);
     display: inline-block;
+    width: 100%;
     text-transform: capitalize;
     color: $color-secondary;
     text-decoration: none;
@@ -31,13 +31,17 @@
       border-bottom-color: $color-secondary;
       transition: border-color 0.3s ease-in;
     }
-    &:visited {
-      color: darken($color-secondary, 15%);
-    }
+  }
+
+  &-nav-inner {
+    margin-top: $spacing-lg * 2;
+    padding: 0;
   }
 
   &--mobile-open {
     @extend %mobile-icons-styling;
+    top: 20px;
+    right: 20px;
     z-index: 101;
     color: $color-light;
     span {
@@ -54,6 +58,8 @@
 
   &--mobile-close {
     @extend %mobile-icons-styling;
+    top: 0;
+    right: 20px;
     span {
       z-index: 102;
     }
@@ -67,7 +73,7 @@
     position: fixed;
     top: 0;
     right: -100%;
-    width: 250px;
+    min-width: 200px;
     height: 100%;
     background-color: #fff;
     transition: right 0.3s ease;
@@ -77,6 +83,13 @@
 
     &.nav-active {
       right: 0; // Slide in when active
+    }
+  }
+
+  &-item--active {
+    background-color: $color-secondary;
+    a {
+      color: $color-light;
     }
   }
 
@@ -132,6 +145,7 @@
       }
 
       &-inner {
+        margin-top: unset;
         display: flex;
         justify-content: flex-end;
       }
